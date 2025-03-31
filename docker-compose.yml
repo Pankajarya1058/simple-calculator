@@ -1,0 +1,10 @@
+
+version: "3.8"
+
+services:
+  nginx:
+    build:
+      context: .
+    container_name: calculator-container
+    ports:
+      - "3000:3000"

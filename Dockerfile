@@ -1,10 +1,19 @@
-FROM node:latest
+
+# Stage 1
+FROM node:latest AS builder
+
 WORKDIR /app
-EXPOSE 3000
+
 COPY ./package*.json ./
+
 RUN npm install
+
 COPY . .
+
+EXPOSE 3000
+
 RUN npm run test
-CMD ["npm", "start"]
+
+CMD ["node", "server.js"] 
 
 
